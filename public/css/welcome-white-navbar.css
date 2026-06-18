@@ -1,0 +1,13 @@
+/* White body + white navbar text + blue accent */
+:root{--accent-blue:#3b82f6;}
+body{background:#fff !important;}
+.navbar,
+.navbar.navbar-dark,
+nav.navbar{background:rgba(255,255,255,.95) !important; backdrop-filter:blur(10px) !important; border-bottom:1px solid rgba(59,130,246,.12) !important;}
+.navbar.scrolled{background:rgba(255,255,255,.98) !important;}
+.navbar-brand,.navbar .navbar-brand{color:#0f172a !important;}
+.nav-link,.navbar .nav-link{color:#475569 !important;}
+.nav-link:hover,.navbar .nav-link:hover{color:var(--accent-blue) !important;}
+.navbar-toggler{border-color:rgba(59,130,246,.4) !important;}
+.navbar-toggler-icon{filter:invert(0);}
+

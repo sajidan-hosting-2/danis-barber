@@ -1,0 +1,493 @@
+:root {
+    --primary-color: #0f172a;
+    --accent-color: #d4af37;
+    --surface-light: #ffffff;
+    --surface-muted: #fff8e1;
+    --surface-strong: #f5efe6;
+    --muted-color: #1f2937;
+}
+
+.navbar-logo {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 9999px;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    opacity: 1;
+    transition: opacity .8s ease;
+}
+
+/* =============================================
+   WARNA TEKS KONSISTEN
+   ============================================= */
+.text-gold { color: var(--accent-color) !important; }
+.text-cream { color: #0f172a !important; }
+.text-muted-custom { color: var(--muted-color) !important; }
+.section-title { color: #0f172a !important; }
+
+/* =============================================
+   SECTION BACKGROUND — KARO KARTU
+   ============================================= */
+section.section-padding {
+    background-color: #ffffff;
+    border-radius: 40px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    margin: 40px 0;
+    overflow: hidden;
+}
+
+section.section-padding.section-dark {
+    background-color: #fff8e1;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+/* =============================================
+   NAVBAR — CERAH, TRANSPARAN DI ATAS
+   ============================================= */
+.navbar,
+.navbar.navbar-dark,
+nav.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1030 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15) !important;
+    transition: background .4s ease, backdrop-filter .4s ease, padding .4s ease !important;
+    padding: 12px 0 !important;
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.22) !important;
+    padding: 10px 0 !important;
+}
+
+.navbar-brand,
+.navbar .navbar-brand {
+    color: #0f172a !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-link,
+.navbar .nav-link {
+    color: #1f2937 !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.navbar .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(0);
+}
+
+.navbar-collapse {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 0 0 8px 8px;
+}
+
+@media (min-width: 992px) {
+    .navbar-collapse {
+        background: transparent;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navbar-brand { font-size: 1.1rem !important; max-width: 70%; }
+    .navbar { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+    .navbar > .container { max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
+    .navbar-collapse { width: 100% !important; flex-basis: 100% !important; flex-grow: 1 !important; }
+    .navbar-nav { width: 100% !important; }
+    .navbar-nav .nav-item { width: 100% !important; }
+    .navbar-nav .nav-link { display: block; width: 100% !important; text-align: center; padding-top: 0.7rem; padding-bottom: 0.7rem; }
+}
+
+/* =============================================
+   HERO SECTION
+   ============================================= */
+.hero-section {
+    background-color: transparent;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0 80px;
+}
+
+.hero-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    object-fit: cover;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+}
+
+.hero-copy {
+    max-width: 600px;
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section .btn,
+.hero-section .lead {
+    color: #0f172a !important;
+}
+
+@media (max-width: 991.98px) {
+    .hero-row {
+        grid-template-columns: 1fr;
+    }
+    .hero-section {
+        padding: 80px 0 60px;
+    }
+    .hero-copy {
+        text-align: center;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        min-height: 60vh;
+        padding: 70px 0 50px;
+    }
+    .hero-copy {
+        text-align: center;
+    }
+    .hero-section .display-3 {
+        font-size: calc(1.75rem + 1vw) !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-section { min-height: 60vh; padding: 90px 0 60px; }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section { min-height: 50vh; padding: 80px 0 40px; }
+    .hero-section .display-3 { font-size: calc(1.6rem + 2vw) !important; }
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+.btn-gold {
+    background-color: var(--accent-color);
+    color: #0f172a;
+    font-weight: bold;
+    border: none;
+    padding: 10px 30px;
+    transition: all 0.3s;
+}
+
+.btn-gold:hover {
+    background-color: #b5922b;
+    color: #0f172a;
+    transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+    background-color: transparent;
+    color: var(--accent-color);
+    font-weight: bold;
+    border: 2px solid var(--accent-color);
+    padding: 10px 30px;
+    transition: all 0.3s;
+}
+
+.btn-outline-gold:hover {
+    background-color: rgba(212, 175, 55, 0.12);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* =============================================
+   PRICING CARDS
+   ============================================= */
+.pricing-card {
+    border: 1px solid rgba(212, 175, 55, 0.16) !important;
+    background: #fff8e1 !important;
+    color: #0f172a;
+    border-radius: 12px !important;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pricing-card .card-title {
+    color: #0f172a !important;
+}
+
+.pricing-featured {
+    border: 2px solid var(--accent-color) !important;
+    background: rgba(212, 175, 55, 0.14) !important;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15) !important;
+}
+
+.badge-best {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 5px 16px;
+    border-radius: 20px;
+}
+
+/* =============================================
+   FEATURE LIST
+   ============================================= */
+.feature-list { list-style: none; padding-left: 0; }
+.feature-list li { margin-bottom: 10px; color: #1f2937; }
+.feature-list i { color: var(--accent-color); margin-right: 10px; }
+
+/* =============================================
+   GALERI
+   ============================================= */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    max-width: 100%;
+}
+
+.gallery-item:hover img { transform: scale(1.12); }
+
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(212, 175, 55, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+/* =============================================
+   KONTAK CARDS
+   ============================================= */
+.kontak-card {
+    background-color: #fff8e1 !important;
+    border: 1px solid rgba(212, 175, 55, 0.18) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s;
+}
+
+.kontak-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.12) !important;
+    border-color: rgba(212, 175, 55, 0.35) !important;
+}
+
+/* =============================================
+   PENUTUP SECTION
+   ============================================= */
+.keunggulan-box {
+    background: rgba(212, 175, 55, 0.10);
+    border-radius: 12px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.gold-divider {
+    border-color: rgba(212, 175, 55, 0.22) !important;
+}
+
+/* =============================================
+   ALERTS
+   ============================================= */
+.alert-success {
+    background-color: #fff3d4;
+    color: #1f2937;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+}
+
+.alert-secondary {
+    background-color: #ffffff;
+    color: #1f2937;
+    border: 1px solid #f0e6c8;
+}
+
+/* =============================================
+   MAP
+   ============================================= */
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.10);
+    aspect-ratio: 16 / 9;
+    min-height: 250px;
+    width: 100%;
+    background: #fff8e1;
+    border: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.map-container iframe { width: 100%; height: 100%; border: 0; }
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer-dark {
+    background-color: #ffffff !important;
+    border-top: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+.footer-link {
+    color: #1f2937 !important;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover { color: var(--accent-color) !important; }
+
+.social-icon {
+    color: #1f2937;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* =============================================
+   FLOATING SOSMED
+   ============================================= */
+.sosmed-float {
+    position: fixed;
+    bottom: 20px; right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wa-float {
+    background-color: #25d366;
+    color: white;
+    width: 55px; height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(109, 148, 197, 0.25);
+    animation: floatBtn 2s infinite ease-in-out;
+}
+
+.ig-float {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    color: white;
+    width: 55px; height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    animation: floatBtn 2s infinite ease-in-out;
+    animation-delay: 0.3s;
+}
+
+.wa-float:hover { transform: scale(1.1) rotate(-10deg); animation: none; }
+.ig-float:hover { transform: scale(1.1) rotate(-10deg); animation: none; }
+
+@media (max-width: 575.98px) {
+    .sosmed-float { bottom: 14px; right: 14px; }
+    .wa-float, .ig-float { width: 48px; height: 48px; font-size: 24px; }
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+.hero-section h1,
+.hero-section p,
+.hero-section .btn {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 1s forwards;
+}
+
+.hero-section p { animation-delay: .3s; }
+.hero-section .btn { animation-delay: .6s; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.pricing-card,
+.kontak-card,
+.gallery-item,
+.col-md-6 img {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all .8s ease;
+}
+
+.show-card {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.btn { transition: all .3s ease; }
+
+@keyframes floatBtn {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+}

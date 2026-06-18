@@ -1,0 +1,436 @@
+:root {
+    
+    --accent-color: #3b82f6;
+    --text-light: #f8f9fa;
+}
+
+
+.navbar-logo {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 9999px;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    opacity: 1;
+    transition: opacity .8s ease;
+}
+
+/* Navbar (white text + blue accent) */
+:root {
+    --accent-blue: #3b82f6;
+}
+
+.navbar-brand,
+.navbar .navbar-brand {
+    color: #ffffff !important;
+}
+
+.nav-link,
+.navbar .nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover,
+.navbar .nav-link:hover {
+    color: var(--accent-blue) !important;
+}
+
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.92) !important;
+}
+
+.navbar.scrolled .navbar-brand,
+.navbar.scrolled .nav-link {
+    color: #0f172a !important;
+}
+
+.navbar.scrolled .nav-link:hover {
+    color: var(--accent-blue) !important;
+}
+
+
+
+
+
+.bg-dark-custom {
+    background-color: var(--primary-color) !important;
+}
+
+.text-gold {
+    color: var(--accent-color) !important;
+}
+
+.btn-gold {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    border: none;
+    padding: 10px 30px;
+    transition: all 0.3s;
+}
+
+.btn-gold:hover {
+    background-color: #b5922b;
+    color: white;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+/* Responsif hero supaya tidak terlalu tinggi & mencegah overflow di HP */
+@media (max-width: 767.98px) {
+    .hero-section {
+        min-height: 60vh;
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        min-height: 50vh;
+        padding: 40px 0;
+    }
+    .hero-section .display-3 {
+        font-size: calc(1.6rem + 2vw) !important;
+    }
+}
+
+.pricing-card {
+    border: 2px solid var(--accent-color);
+    background: white;
+    transition: transform 0.3s;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.feature-list li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.feature-list i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+}
+
+.gallery-item-hidden {
+    display: none;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+    max-width: 100%;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.sosmed-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wa-float {
+    background-color: #25D366;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.wa-float:hover {
+    transform: scale(1.1) rotate(-10deg);
+}
+
+.ig-float {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.ig-float:hover {
+    transform: scale(1.1) rotate(-10deg);
+}
+
+.kontak-card {
+    transition: all 0.3s;
+}
+
+.kontak-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    aspect-ratio: 16 / 9;
+    min-height: 250px;
+    width: 100%;
+    background: #eee;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Navbar Transparan */
+.navbar {
+    background: transparent !important;
+    transition: all .4s ease;
+    padding: 20px 0;
+}
+
+.navbar.scrolled {
+    background: rgba(255,255,255,.9) !important;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+    padding: 10px 0;
+}
+
+/* Navbar override (existing in blade) */
+.navbar {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 1.1rem !important;
+        max-width: 70%;
+    }
+}
+
+.nav-link {
+    color: var(--primary-color) !important;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Biar navbar benar-benar responsif di mobile */
+@media (max-width: 575.98px) {
+    .navbar {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .navbar > .container {
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .navbar-collapse {
+        width: 100% !important;
+        flex-basis: 100% !important;
+        flex-grow: 1 !important;
+    }
+
+    .navbar-nav {
+        width: 100% !important;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100% !important;
+    }
+
+    .navbar-nav .nav-link {
+        display: block;
+        width: 100% !important;
+        text-align: center;
+        white-space: normal;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+    }
+}
+
+/* Floating buttons lebih kecil di mobile */
+@media (max-width: 575.98px) {
+    .sosmed-float { bottom: 14px; right: 14px; }
+    .wa-float, .ig-float { width: 48px; height: 48px; font-size: 24px; }
+}
+
+/* Hero Animation */
+.hero-section h1,
+.hero-section p,
+.hero-section .btn {
+    opacity:0;
+    transform:translateY(50px);
+    animation:fadeUp 1s forwards;
+}
+
+.hero-section p {
+    animation-delay:.3s;
+}
+
+.hero-section .btn {
+    animation-delay:.6s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Card Animation */
+.pricing-card,
+.kontak-card,
+.gallery-item,
+.col-md-6 img {
+    opacity:0;
+    transform:translateY(60px);
+    transition:all .8s ease;
+}
+
+.show-card {
+    opacity:1 !important;
+    transform:translateY(0) !important;
+}
+
+/* Hover Effects */
+.pricing-card:hover {
+    transform:translateY(-15px) scale(1.03);
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
+.kontak-card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.gallery-item img {
+    transition:all .5s ease;
+}
+
+.gallery-item:hover img {
+    transform:scale(1.12);
+}
+
+.btn {
+    transition:all .3s ease;
+}
+
+.btn:hover {
+    transform:translateY(-3px);
+}
+
+/* Floating Button Animation */
+.wa-float,
+.ig-float {
+    animation:floatBtn 2s infinite ease-in-out;
+}
+
+@keyframes floatBtn {
+    0%,100% {
+        transform:translateY(0);
+    }
+    50% {
+        transform:translateY(-8px);
+    }
+}
+
