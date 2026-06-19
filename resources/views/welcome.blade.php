@@ -381,7 +381,11 @@ const observer = new IntersectionObserver((entries)=>{
     });
 },{ threshold:0.15 });
 
-document.querySelectorAll('.pricing-card, .kontak-card, .gallery-item, .col-md-6 img').forEach((el)=>{
+document.querySelectorAll('.pricing-card, .kontak-card, .col-md-6 img').forEach((el)=>{
+    observer.observe(el);
+});
+
+document.querySelectorAll('.gallery-item:not(.gallery-item-hidden)').forEach((el)=>{
     observer.observe(el);
 });
 
