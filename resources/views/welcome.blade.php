@@ -63,8 +63,8 @@
                 <img src="{{ asset('image/kk.jpg') }}" alt="Jompi TimHairstylist" />
             </div>
             <div class="hero-copy text-start">
-                <h1 class="h3 fw-bold mb-3">💈 Jompi TimHairstylist 💈 </h1>
-                <h1 class="h3 fw-bold mb-3"> Acara Makin Berkesan </h1>
+                <h1 class="h2 fw-bold mb-3">💈 Jompi TimHairstylist 💈 </h1>
+                <h1 class="h2 fw-bold mb-3"> Acara Makin Berkesan </h1>
                 <p class="lead mb-4">Hair Stylist with Jompi & Tim</p>
                 <p class="h4 mb-5">Paket lengkap untuk calon pengantin pria,<br> tampil percaya diri & berkelas di hari bahagia.</p>
                 <a href="#paket" class="btn btn-gold btn-lg">Lihat Paket</a>
