@@ -392,8 +392,9 @@ document.querySelectorAll('.gallery-item:not(.gallery-item-hidden)').forEach((el
 const showAllButton = document.getElementById('show-all-gallery');
 if (showAllButton) {
     showAllButton.addEventListener('click', function() {
-        document.querySelectorAll('.gallery-item-hidden').forEach((item) => {
-            item.style.display = 'block';
+document.querySelectorAll('.gallery-item-hidden').forEach((item) => {
+            item.classList.remove('gallery-item-hidden');
+            item.style.display = '';
         });
         showAllButton.style.display = 'none';
     });
