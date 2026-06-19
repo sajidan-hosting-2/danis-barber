@@ -298,7 +298,7 @@ nav.navbar {
 }
 
 /* =============================================
-   LIGHTBOX GALERI (Full Screen Mobile-friendly)
+   LIGHTBOX GALERI (Modal besar, ada margin di layar)
    ============================================= */
 .galeri-lightbox {
     position: fixed;
@@ -306,27 +306,29 @@ nav.navbar {
     z-index: 2000;
     background: rgba(0, 0, 0, 0.88);
     display: none;
-}
-
-.galeri-lightbox.show {
-    display: flex;
     align-items: center;
     justify-content: center;
     padding: 18px;
 }
 
+.galeri-lightbox.show {
+    display: flex;
+}
+
 .galeri-lightbox img {
-    max-width: 100%;
+    max-width: min(980px, 95vw);
     max-height: calc(100vh - 36px);
     width: auto;
     height: auto;
     object-fit: contain;
     background: transparent;
+    box-shadow: 0 30px 80px rgba(0,0,0,.45);
+    border-radius: 12px;
+    transform: scale(.98);
+    transition: transform .18s ease;
 }
 
-.galeri-lightbox {
-    padding: 18px;
-}
+
 
 
 .galeri-lightbox-close {
