@@ -180,7 +180,7 @@
                 @forelse($galeris as $galeri)
                     <div class="col-md-4 col-6">
                         <div class="gallery-item-wrapper">
-                            <div class="gallery-item {{ $loop->index >= 4 ? 'gallery-item-hidden' : '' }}" data-full="{{ asset('storage/' . $galeri->image_path) }}" data-title="{{ $galeri->title ?? 'Galeri' }}">
+<div class="gallery-item" data-full="{{ asset('storage/' . $galeri->image_path) }}" data-title="{{ $galeri->title ?? 'Galeri' }}">
                                 <img src="{{ asset('storage/' . $galeri->image_path) }}" alt="{{ $galeri->title ?? 'Galeri' }}" />
                                 <div class="gallery-overlay text-white"><i class="fas fa-check fa-2x"></i></div>
                             </div>
