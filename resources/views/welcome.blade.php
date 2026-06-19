@@ -7,6 +7,7 @@
     <link rel="icon" type="image/jpeg" href="{{ asset('image/logo.jpeg') }}" />
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome-white-navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/welcome-modal.css') }}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -179,7 +180,7 @@
                 @forelse($galeris as $galeri)
                     <div class="col-md-4 col-6">
                         <div class="gallery-item-wrapper">
-<div class="gallery-item {{ $loop->index >= 3 ? 'gallery-item-hidden' : '' }}">
+                            <div class="gallery-item {{ $loop->index >= 3 ? 'gallery-item-hidden' : '' }}" data-full="{{ asset('storage/' . $galeri->image_path) }}" data-title="{{ $galeri->title ?? 'Galeri' }}">
                                 <img src="{{ asset('storage/' . $galeri->image_path) }}" alt="{{ $galeri->title ?? 'Galeri' }}" />
                                 <div class="gallery-overlay text-white"><i class="fas fa-check fa-2x"></i></div>
                             </div>
@@ -199,8 +200,13 @@
         </div>
     </section>
 
-    <!-- Lightbox Galeri (Full Screen untuk Mobile) -->
-
+    <!-- Modal Galeri (lebih jelas) -->
+    <div id="galleryModal" class="modal-overlay" aria-hidden="true">
+        <button type="button" class="modal-close" id="galleryModalClose" aria-label="Tutup">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="galleryModalImg" src="" alt="Gambar Galeri" />
+    </div>
 
     <!-- Kontak Section -->
     <section id="kontak" class="section-padding section-dark">
@@ -388,6 +394,43 @@ if (showAllButton) {
         showAllButton.style.display = 'none';
     });
 }
+
+const modalOverlay = document.getElementById('galleryModal');
+const modalImg = document.getElementById('galleryModalImg');
+const modalCloseBtn = document.getElementById('galleryModalClose');
+
+function openGalleryModal(src) {
+    if (!src) return;
+    modalImg.src = src;
+    modalOverlay.classList.add('show');
+    modalOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeGalleryModal() {
+    modalOverlay.classList.remove('show');
+    modalOverlay.setAttribute('aria-hidden', 'true');
+    modalImg.src = '';
+    document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.gallery-item[data-full]').forEach((item) => {
+    item.addEventListener('click', () => {
+        openGalleryModal(item.getAttribute('data-full'));
+    });
+});
+
+modalCloseBtn?.addEventListener('click', closeGalleryModal);
+
+modalOverlay?.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeGalleryModal();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('show')) {
+        closeGalleryModal();
+    }
+});
 
 const reveal = () => { document.body.style.opacity = '1'; };
 window.addEventListener('DOMContentLoaded', reveal);

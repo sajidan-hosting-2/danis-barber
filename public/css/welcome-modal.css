@@ -1,0 +1,54 @@
+/* Modal Galeri (tipe seperti contoh myModal) */
+
+.myImg {
+    cursor: pointer;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    z-index: 3000;
+    padding: 18px;
+}
+
+.modal-overlay.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay img {
+    max-width: 100%;
+    max-height: calc(100vh - 36px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 30px 90px rgba(0,0,0,.55);
+}
+
+.modal-close {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3010;
+    transition: transform .15s ease, background .15s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.05);
+    background: rgba(0,0,0,0.6);
+}
+
