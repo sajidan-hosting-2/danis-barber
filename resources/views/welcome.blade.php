@@ -117,7 +117,7 @@
                                 <li><i class="fas fa-check-circle"></i> Paket produk styling rambut</li>
                                 <li><i class="fas fa-gift" style="color:#4ade80;"></i> FREE hairstyling untuk 1 orang</li>
                             </ul>
-                            <button class="btn btn-outline-gold w-100 mt-auto" onclick="window.open('https://wa.me/6282126982529?text=Halo%20CPP%20Ganteng!%20Saya%20ingin%20booking%20paket%20Regular%20untuk%20acara%20pernikahan%20saya.', '_blank')">Pilih Regular</button>
+                            <button class="btn btn-outline-gold w-100 mt-auto" onclick="window.open('https://wa.me/6282126982529?text=Halo%20JompiHairstylist!%20Saya%20ingin%20booking%20paket%20Regular%20untuk%20acara%20pernikahan%20saya.', '_blank')">Pilih Regular</button>
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                                 <li><i class="fas fa-gift" style="color:#d4af37;"></i> BONUS: 1 pcs Mark Hair Tonic</li>
                                 <li><i class="fas fa-gift" style="color:#4ade80;"></i> FREE hairstyling untuk 2 orang</li>
                             </ul>
-                            <button class="btn btn-gold w-100 fw-bold mt-auto" onclick="window.open('https://wa.me/6282126982529?text=Halo%20CPP%20Ganteng!%20Saya%20ingin%20booking%20paket%20Extra%20untuk%20acara%20pernikahan%20saya.', '_blank')">Pilih Extra</button>
+                            <button class="btn btn-gold w-100 fw-bold mt-auto" onclick="window.open('https://wa.me/6282126982529?text=Halo%20JompiTimHairstylist!%20Saya%20ingin%20booking%20paket%20Extra%20untuk%20acara%20pernikahan%20saya.', '_blank')">Pilih Extra</button>
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                                 <li><i class="fas fa-check-circle"></i> Produk premium lengkap: pomade, spray, tonic, powder</li>
                                 <li><i class="fas fa-gift" style="color:#4ade80;"></i> BONUS: Mark Hair Tonic + FREE styling 2 orang</li>
                             </ul>
-                            <button class="btn btn-gold w-100 fw-bold mt-auto" onclick="window.open('https://wa.me/6282126982529?text=Halo%20CPP%20Ganteng!%20Saya%20ingin%20booking%20paket%20JOMPI%20GROOM%20ALL%20PACKAGE%20untuk%20acara%20pernikahan%20saya.', '_blank')">Pilih Groom All</button>
+                            <button class="btn btn-gold w-100 fw-bold mt-auto" onclick="window.open('https://wa.me/6282126982529?text=Halo%20JompiTimHairstylist!%20Saya%20ingin%20booking%20paket%20JOMPI%20GROOM%20ALL%20PACKAGE%20untuk%20acara%20pernikahan%20saya.', '_blank')">Pilih Groom All</button>
                         </div>
                     </div>
                 </div>
