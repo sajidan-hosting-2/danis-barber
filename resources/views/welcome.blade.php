@@ -63,9 +63,10 @@
                 <img src="{{ asset('image/kk.jpg') }}" alt="Jompi TimHairstylist" />
             </div>
             <div class="hero-copy text-start">
-                <h1 class="display-3 fw-bold mb-3">💈 Jompi TimHairstylist, Acara Makin Berkesan 💈</h1>
-                <p class="lead mb-4">Hair Stylist with Jompi X Dome</p>
-                <p class="h4 mb-5">Paket lengkap untuk calon pengantin pria,<br>biar tampil percaya diri & berkelas di hari bahagia.</p>
+                <h1 class="display-3 fw-bold mb-3">💈 Jompi TimHairstylist 💈 </h1>
+                <h1 class="display-3 fw-bold mb-3"> Acara Makin Berkesan </h1>
+                <p class="lead mb-4">Hair Stylist with Jompi & Tim</p>
+                <p class="h4 mb-5">Paket lengkap untuk calon pengantin pria,<br> tampil percaya diri & berkelas di hari bahagia.</p>
                 <a href="#paket" class="btn btn-gold btn-lg">Lihat Paket</a>
             </div>
         </div>
@@ -81,7 +82,7 @@
                 <div class="col-md-6 mt-4 mt-md-0">
                     <h2 class="fw-bold text-uppercase mb-4 section-title">Tentang Kami</h2>
                     <p class="lead text-cream">Kami adalah layanan hairstyling khusus pria untuk acara pernikahan.</p>
-                    <p class="text-muted-custom">Dikerjakan oleh tim profesional <strong class="text-gold">Jompi TimHairstylist</strong> bersama <strong class="text-gold">Jompi X Dome</strong>, kami siap membuat pengantin pria terlihat terbaik di hari bahagia nya.</p>
+                    <p class="text-muted-custom">Dikerjakan oleh tim profesional <strong class="text-gold">Jompi TimHairstylist</strong> <strong class="text-gold"> X Dome</strong>, kami siap membuat pengantin pria terlihat percaya diri di hari bahagia.</p>
                     <ul class="feature-list mt-4">
                         <li><i class="fas fa-star"></i> Stylist Professional & Berpengalaman</li>
                         <li><i class="fas fa-star"></i> Menggunakan Produk Premium</li>
@@ -97,7 +98,7 @@
     <section id="paket" class="py-5 section-dark">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="text-uppercase fw-bold section-title">Pilih Paket Perfectmu</h2>
+                <h2 class="text-uppercase fw-bold section-title">Pilih Paket Perfect</h2>
                 <div class="separator" style="width: 60px; height: 3px; background: var(--accent-color); margin: 10px auto;"></div>
             </div>
 
