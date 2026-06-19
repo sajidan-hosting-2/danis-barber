@@ -293,6 +293,11 @@ nav.navbar {
     border: 1px solid rgba(212, 175, 55, 0.15);
 }
 
+.gallery-item-hidden {
+    display: none !important;
+}
+
+
 .gallery-item-wrapper {
     width: 100%;
 }
