@@ -312,14 +312,22 @@ nav.navbar {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 18px;
 }
 
 .galeri-lightbox img {
-    width: 100vw;
-    height: 100vh;
+    max-width: 100%;
+    max-height: calc(100vh - 36px);
+    width: auto;
+    height: auto;
     object-fit: contain;
     background: transparent;
 }
+
+.galeri-lightbox {
+    padding: 18px;
+}
+
 
 .galeri-lightbox-close {
     position: fixed;

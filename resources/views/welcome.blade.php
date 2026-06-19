@@ -200,7 +200,7 @@
     </section>
 
     <!-- Lightbox Galeri (Full Screen untuk Mobile) -->
-    <div id="galeri-lightbox" class="galeri-lightbox" aria-hidden="true">
+<div id="galeri-lightbox" class="galeri-lightbox" aria-hidden="true">
         <button type="button" class="galeri-lightbox-close" aria-label="Tutup">
             <i class="fas fa-times"></i>
         </button>
