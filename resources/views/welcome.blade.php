@@ -395,6 +395,8 @@ if (showAllButton) {
 document.querySelectorAll('.gallery-item-hidden').forEach((item) => {
             item.classList.remove('gallery-item-hidden');
             item.style.display = '';
+            // paksa tampil instan biar tidak nunggu observer/scroll
+            item.classList.add('show-card');
         });
         showAllButton.style.display = 'none';
     });
