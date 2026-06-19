@@ -60,7 +60,7 @@
     <header class="hero-section">
         <div class="container hero-row">
             <div class="hero-image">
-                <img src="{{ asset('image/kk.jpg') }}" alt="Jompi TimHairstylist" />
+                <img src="{{ asset('image/image.jpg') }}" alt="Jompi TimHairstylist" />
             </div>
             <div class="hero-copy text-start">
                 <h2 class=" fw-bold mb-3">💈 Jompi TimHairstylist 💈 </h2>
