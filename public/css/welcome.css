@@ -297,66 +297,7 @@ nav.navbar {
     width: 100%;
 }
 
-/* =============================================
-   LIGHTBOX GALERI (Modal besar, ada margin di layar)
-   ============================================= */
-.galeri-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    background: rgba(0, 0, 0, 0.88);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 18px;
-}
 
-.galeri-lightbox.show {
-    display: flex;
-}
-
-.galeri-lightbox img {
-    max-width: min(980px, 95vw);
-    max-height: calc(100vh - 36px);
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    background: transparent;
-    box-shadow: 0 30px 80px rgba(0,0,0,.45);
-    border-radius: 12px;
-    transform: scale(.98);
-    transition: transform .18s ease;
-}
-
-
-
-
-.galeri-lightbox-close {
-    position: fixed;
-    top: 14px;
-    right: 14px;
-    z-index: 2010;
-    width: 44px;
-    height: 44px;
-    border-radius: 9999px;
-    border: 1px solid rgba(212, 175, 55, 0.35);
-    background: rgba(0,0,0,0.4);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform .15s ease, background .15s ease;
-}
-
-.galeri-lightbox-close:hover {
-    transform: scale(1.05);
-    background: rgba(0,0,0,0.55);
-}
-
-.galeri-lightbox-close i {
-    font-size: 18px;
-}
 
 
 .gallery-item img {

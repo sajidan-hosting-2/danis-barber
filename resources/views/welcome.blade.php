@@ -179,7 +179,7 @@
                 @forelse($galeris as $galeri)
                     <div class="col-md-4 col-6">
                         <div class="gallery-item-wrapper">
-                            <div class="gallery-item {{ $loop->index >= 3 ? 'gallery-item-hidden' : '' }}" data-full="{{ asset('storage/' . $galeri->image_path) }}">
+<div class="gallery-item {{ $loop->index >= 3 ? 'gallery-item-hidden' : '' }}">
                                 <img src="{{ asset('storage/' . $galeri->image_path) }}" alt="{{ $galeri->title ?? 'Galeri' }}" />
                                 <div class="gallery-overlay text-white"><i class="fas fa-check fa-2x"></i></div>
                             </div>
@@ -200,12 +200,6 @@
     </section>
 
     <!-- Lightbox Galeri (Full Screen untuk Mobile) -->
-<div id="galeri-lightbox" class="galeri-lightbox" aria-hidden="true">
-        <button type="button" class="galeri-lightbox-close" aria-label="Tutup">
-            <i class="fas fa-times"></i>
-        </button>
-        <img id="galeri-lightbox-img" src="" alt="Gambar Galeri" />
-    </div>
 
 
     <!-- Kontak Section -->
@@ -394,47 +388,6 @@ if (showAllButton) {
         showAllButton.style.display = 'none';
     });
 }
-
-// Lightbox Galeri
-const lightbox = document.getElementById('galeri-lightbox');
-const lightboxImg = document.getElementById('galeri-lightbox-img');
-const lightboxCloseBtn = document.querySelector('.galeri-lightbox-close');
-
-function openLightbox(src) {
-    if (!src) return;
-    lightboxImg.src = src;
-    lightbox.setAttribute('aria-hidden', 'false');
-    lightbox.classList.add('show');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    lightbox.setAttribute('aria-hidden', 'true');
-    lightbox.classList.remove('show');
-    lightboxImg.src = '';
-    document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.gallery-item[data-full]').forEach((item) => {
-    item.addEventListener('click', () => {
-        openLightbox(item.getAttribute('data-full'));
-    });
-});
-
-if (lightboxCloseBtn) {
-    lightboxCloseBtn.addEventListener('click', closeLightbox);
-}
-
-lightbox?.addEventListener('click', (e) => {
-    // Tutup kalau yang diklik adalah background overlay, bukan gambarnya
-    if (e.target === lightbox) closeLightbox();
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('show')) {
-        closeLightbox();
-    }
-});
 
 const reveal = () => { document.body.style.opacity = '1'; };
 window.addEventListener('DOMContentLoaded', reveal);
