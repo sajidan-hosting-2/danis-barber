@@ -121,7 +121,7 @@
                 <div class="col-md-6 mt-4 mt-md-0">
                     <h2 class="fw-bold text-uppercase mb-4 section-title">Tentang Kami</h2>
                     <p class="lead text-cream">Kami adalah layanan hairstyling khusus pria untuk acara pernikahan.</p>
-                    <p class="text-muted-custom">Dikerjakan oleh tim profesional <strong class="text-gold">Jompi TimHairstylist</strong> <strong class="text-gold"> X Dome</strong>, kami siap membuat pengantin pria terlihat percaya diri di hari bahagia.</p>
+                    <p class="text-muted-custom">Dikerjakan oleh tim profesional <strong class="text-black font-bold">Jompi TimHairstylist</strong> <strong class="text-black font-bold"> X Dome</strong>, kami siap membuat pengantin pria terlihat percaya diri di hari bahagia.</p>
                     <ul class="feature-list mt-4">
                         <li><i class="fas fa-star"></i> Stylist Professional & Berpengalaman</li>
                         <li><i class="fas fa-star"></i> Menggunakan Produk Premium</li>
