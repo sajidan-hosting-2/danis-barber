@@ -11,13 +11,66 @@
         .navbar-logo{width:34px;height:34px;object-fit:cover;border-radius:9999px}
 
         /* Fix maps */
-        .map-placeholder{width:100%;min-height:320px;display:flex;align-items:center;justify-content:center;background:#f1f3f5;border-radius:8px;cursor:pointer;padding:24px;text-align:center}
-        .map-placeholder-inner{display:flex;flex-direction:column;align-items:center;gap:8px;color:#495057}
-        .map-placeholder .map-icon{font-size:32px}
-        .map-placeholder .map-text{font-weight:600}
-        .map-container{width:100%;overflow:hidden;border-radius:8px}
-        #mapFrameContainer{width:100%;min-height:320px;display:block}
-        #mapFrameContainer iframe{width:100%;min-height:320px;border:0;display:block}
+        .map-placeholder{
+            width:100%;
+            min-height:460px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#f1f3f5;
+            border-radius:12px;
+            cursor:pointer;
+            padding:40px 24px;
+            text-align:center
+        }
+        .map-placeholder-inner{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:10px;
+            color:#495057
+        }
+        .map-placeholder .map-icon{font-size:36px}
+        .map-placeholder .map-text{font-weight:700;font-size:1.1rem}
+        .map-container{
+            width:100%;
+            overflow:hidden;
+            border-radius:12px;
+            margin-top:24px
+        }
+        #mapFrameContainer{
+            width:100%;
+            min-height:460px;
+            display:block
+        }
+        #mapFrameContainer iframe{
+            width:100%;
+            min-height:460px;
+            border:0;
+            display:block;
+            border-radius:12px
+        }
+
+        /* Fix gallery images */
+        .gallery-item-wrapper{
+            height:100%
+        }
+        .gallery-item{
+            position:relative;
+            overflow:hidden;
+            border-radius:14px;
+            cursor:pointer;
+            background:#111;
+            min-height:260px;
+            display:block
+        }
+        .gallery-item img{
+            width:100%;
+            height:100%;
+            min-height:260px;
+            object-fit:cover;
+            display:block
+        }
     </style>
     <link rel="icon" type="image/jpeg" href="{{ asset('image/logo.jpeg') }}" />
 
@@ -215,7 +268,13 @@
                     <div class="col-md-4 col-6">
                         <div class="gallery-item-wrapper">
                             <div class="gallery-item" data-full="{{ asset('storage/' . $galeri->image_path) }}" data-title="{{ $galeri->title ?? 'Galeri' }}">
-                                <img src="{{ asset('storage/' . $galeri->image_path) }}" alt="{{ $galeri->title ?? 'Galeri' }}" loading="lazy" width="400" height="300" />
+                                <img src="{{ asset('storage/' . $galeri->image_path) }}"
+                                     alt="{{ $galeri->title ?? 'Galeri' }}"
+                                     loading="lazy"
+                                     width="400"
+                                     height="300"
+                                     decoding="async"
+                                     onerror="this.onerror=null;this.src='{{ asset('image/image.jpg') }}';" />
                                 <div class="gallery-overlay text-white"><i class="fas fa-check fa-2x"></i></div>
                             </div>
                         </div>
@@ -290,7 +349,8 @@
                 <div id="mapPlaceholder" class="map-placeholder" role="button" tabindex="0" aria-label="Tampilkan peta">
                     <div class="map-placeholder-inner">
                         <div class="map-icon">📍</div>
-                        <div class="map-text">Tampilkan Peta</div>
+                        <div class="map-text">Tampilkan Lokasi Dome Barber Shop</div>
+                        <small>Klik untuk memuat Google Maps</small>
                     </div>
                 </div>
                 <div id="mapFrameContainer" aria-hidden="true"></div>
@@ -398,7 +458,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Fix maps: script dipindah ke bawah supaya elemen sudah ada -->
+    <!-- Fix maps -->
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         const placeholder = document.getElementById('mapPlaceholder');
@@ -406,7 +466,7 @@
 
         if (!placeholder || !container) return;
 
-        const mapSrc = 'https://www.google.com/maps?q=-7.3240154,108.2200024&z=19&output=embed';
+        const mapSrc = 'https://www.google.com/maps?q=Dome+Barber+Shop,+Jl.+R.+Ikik+Wiradikarta+No.16,+Tasikmalaya&z=19&output=embed';
 
         function loadMap() {
             if (container.querySelector('iframe')) return;
@@ -414,7 +474,7 @@
             const iframe = document.createElement('iframe');
             iframe.src = mapSrc;
             iframe.style.width = '100%';
-            iframe.style.minHeight = '320px';
+            iframe.style.minHeight = '460px';
             iframe.style.border = '0';
             iframe.allowFullscreen = true;
             iframe.loading = 'lazy';
