@@ -99,8 +99,8 @@
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/admin/login">
                 <picture>
-                    <source srcset="{{ asset('image/logo.webp') }}" type="image/webp">
-                    <source srcset="{{ asset('image/logo.avif') }}" type="image/avif">
+                    <source type="image/avif" srcset="{{ asset('image/logo-34.avif') }} 34w, {{ asset('image/logo-60.avif') }} 60w, {{ asset('image/logo-400.avif') }} 400w" sizes="34px">
+                    <source type="image/webp" srcset="{{ asset('image/logo-34.webp') }} 34w, {{ asset('image/logo-60.webp') }} 60w, {{ asset('image/logo-400.webp') }} 400w" sizes="34px">
                     <img src="{{ asset('image/logo.jpeg') }}" alt="Logo" class="navbar-logo" width="34" height="34" loading="eager" decoding="async" fetchpriority="high" />
                 </picture>
                 <span>Jompi TimHairstylist</span>
@@ -134,8 +134,8 @@
         <div class="container hero-row">
             <div class="hero-image">
                 <picture>
-                    <source srcset="{{ asset('image/image.avif') }}" type="image/avif">
-                    <source srcset="{{ asset('image/image.webp') }}" type="image/webp">
+                    <source type="image/avif" srcset="{{ asset('image/image-400.avif') }} 400w, {{ asset('image/image-679.avif') }} 679w, {{ asset('image/image-1024.avif') }} 1024w" sizes="(max-width: 767px) 100vw, 679px">
+                    <source type="image/webp" srcset="{{ asset('image/image-400.webp') }} 400w, {{ asset('image/image-679.webp') }} 679w, {{ asset('image/image-1024.webp') }} 1024w" sizes="(max-width: 767px) 100vw, 679px">
                     <img src="{{ asset('image/image.jpg') }}" alt="Jompi TimHairstylist" class="img-fluid" width="679" height="1207" loading="eager" decoding="async" fetchpriority="high" />
                 </picture>
             </div>
@@ -155,8 +155,8 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <picture>
-                        <source srcset="{{ asset('image/dadan.avif') }}" type="image/avif">
-                        <source srcset="{{ asset('image/dadan.webp') }}" type="image/webp">
+                        <source type="image/avif" srcset="{{ asset('image/dadan-400.avif') }} 400w, {{ asset('image/dadan-679.avif') }} 679w, {{ asset('image/dadan-1024.avif') }} 1024w" sizes="(max-width: 767px) 100vw, 480px">
+                        <source type="image/webp" srcset="{{ asset('image/dadan-400.webp') }} 400w, {{ asset('image/dadan-679.webp') }} 679w, {{ asset('image/dadan-1024.webp') }} 1024w" sizes="(max-width: 767px) 100vw, 480px">
                         <img src="{{ asset('image/dadan.jpeg') }}" class="img-fluid rounded shadow" alt="Tentang CPP" width="720" height="480" loading="lazy">
                     </picture>
                 </div>
