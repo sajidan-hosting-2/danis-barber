@@ -95,7 +95,11 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold" style="font-size: 14px;">Gambar</label>
-                        <input type="file" name="image" class="form-control py-2" accept="image/*">
+                        <input type="file" name="image" class="form-control py-2" accept=".jpg,.jpeg,.png,.webp,.svg,image/jpeg,image/png,image/webp,image/svg+xml">
+                        <div class="form-text mt-2">
+                            <strong>Maksimal ukuran file:</strong> 200 KB.<br>
+                            <strong>Rekomendasi format:</strong> JPEG/JPG untuk foto biasa, PNG/SVG untuk logo dengan latar transparan, dan WebP untuk kualitas tinggi dengan ukuran lebih kecil.
+                        </div>
                     </div>
 
                     <div class="mb-3">

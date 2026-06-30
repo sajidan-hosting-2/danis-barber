@@ -23,9 +23,20 @@ class GaleriAdminController extends Controller
     {
         $validated = $request->validate([
             'title' => 'nullable|string|max:255',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
+            'image' => [
+                'required',
+                'file',
+                'image',
+                'mimes:jpg,jpeg,png,webp,svg',
+                'max:200',
+            ],
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'nullable|boolean',
+        ], [
+            'image.required' => 'Gambar wajib diunggah.',
+            'image.image' => 'File yang diunggah harus berupa gambar.',
+            'image.mimes' => 'Format yang diperbolehkan: JPG, JPEG, PNG, WebP, atau SVG.',
+            'image.max' => 'Ukuran file gambar maksimal 200 KB.',
         ]);
 
         $path = $request->file('image')->store('galeri', 'public');
