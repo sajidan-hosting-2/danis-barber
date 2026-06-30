@@ -78,7 +78,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <img src="{{ asset('image/danda.jpeg') }}" class="img-fluid rounded shadow" alt="Tentang CPP">
+                    <img src="{{ asset('image/dadan.jpeg') }}" class="img-fluid rounded shadow" alt="Tentang CPP">
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0">
                     <h2 class="fw-bold text-uppercase mb-4 section-title">Tentang Kami</h2>
