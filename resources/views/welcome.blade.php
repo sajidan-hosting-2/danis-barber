@@ -41,6 +41,48 @@
 </head>
 <body>
 
+<style>
+    .map-placeholder{width:100%;height:100%;min-height:250px;display:flex;align-items:center;justify-content:center;background:#f1f3f5;border-radius:8px;cursor:pointer}
+    .map-placeholder-inner{display:flex;flex-direction:column;align-items:center;gap:8px;color:#495057}
+    .map-placeholder .map-icon{font-size:32px}
+    .map-placeholder .map-text{font-weight:600}
+</style>
+<script>
+    (function(){
+        const placeholder = document.getElementById('mapPlaceholder');
+        const container = document.getElementById('mapFrameContainer');
+        const mapSrc = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15909.449076487999!2d108.219987!3d-7.324006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f5748d49d7613%3A0x7ee6679066d23137!2zRG9tZSBCYXJiZXIgU2hvcA==!5e0!3m2!1sid!2sid!4v1710000000000';
+
+        function loadMap(){
+            if (container.querySelector('iframe')) return;
+            const iframe = document.createElement('iframe');
+            iframe.src = mapSrc;
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.style.border = '0';
+            iframe.setAttribute('loading','lazy');
+            iframe.setAttribute('referrerpolicy','no-referrer-when-downgrade');
+            iframe.id = 'mapIframe';
+            container.setAttribute('aria-hidden','false');
+            container.appendChild(iframe);
+            // hide placeholder after load
+            placeholder.style.display = 'none';
+        }
+
+        placeholder.addEventListener('click', loadMap);
+        placeholder.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadMap(); } });
+
+        // Auto-load when placeholder enters viewport (but only on non-slow connections)
+        if ('IntersectionObserver' in window && navigator.connection && navigator.connection.saveData !== true) {
+            const io = new IntersectionObserver((entries)=>{
+                entries.forEach(entry=>{
+                    if (entry.isIntersecting) { loadMap(); io.disconnect(); }
+                });
+            },{rootMargin:'200px'});
+            io.observe(placeholder);
+        }
+    })();
+</script>
     <!-- Floating Sosmed Button -->
     <div class="sosmed-float">
         <a href="https://wa.me/6282126982529" target="_blank" class="wa-float" title="Chat WhatsApp">
@@ -291,12 +333,13 @@
 
             <!-- Google Maps -->
             <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15909.449076487999!2d108.219987!3d-7.324006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f5748d49d7613%3A0x7ee6679066d23137!2zRG9tZSBCYXJiZXIgU2hvcA==!5e0!3m2!1sid!2sid!4v1710000000000"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                        <div id="mapPlaceholder" class="map-placeholder" role="button" tabindex="0" aria-label="Tampilkan peta">
+                            <div class="map-placeholder-inner">
+                                <div class="map-icon">📍</div>
+                                <div class="map-text">Tampilkan Peta</div>
+                            </div>
+                        </div>
+                        <div id="mapFrameContainer" aria-hidden="true"></div>
             </div>
         </div>
     </section>
