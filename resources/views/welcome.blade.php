@@ -4,14 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jompi TimHairstylist</title>
+    <style>
+        /* Critical CSS: minimal styles needed for initial render (hero & navbar) */
+        .hero-section{background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{ asset('image/image.jpg') }}') center/cover no-repeat;min-height:60vh;display:flex;align-items:center;justify-content:center;padding:40px 0}
+        .navbar{background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.1)}
+        .navbar-logo{width:34px;height:34px;object-fit:cover;border-radius:9999px}
+    </style>
     <link rel="icon" type="image/jpeg" href="{{ asset('image/logo.jpeg') }}" />
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/welcome-white-navbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/welcome-modal.css') }}">
+    <!-- Preload hero image (prefer WebP) to help LCP -->
+    <link rel="preload" href="{{ asset('image/image.webp') }}" as="image" type="image/webp">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Load local CSS non-blocking -->
+    <link rel="preload" href="{{ asset('css/welcome.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{ asset('css/welcome-white-navbar.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{ asset('css/welcome-modal.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/welcome-white-navbar.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/welcome-modal.css') }}">
+    </noscript>
+
+    <!-- Fonts: preconnect then load (display=swap ensures fast text rendering) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Load external vendor CSS non-blocking -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 </head>
 <body>
 
@@ -30,7 +56,11 @@
 
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/admin/login">
-                <img src="{{ asset('image/logo.jpeg') }}" alt="Logo" class="navbar-logo" />
+                <picture>
+                    <source srcset="{{ asset('image/logo.webp') }}" type="image/webp">
+                    <source srcset="{{ asset('image/logo.avif') }}" type="image/avif">
+                    <img src="{{ asset('image/logo.jpeg') }}" alt="Logo" class="navbar-logo" width="34" height="34" loading="eager" decoding="async" fetchpriority="high" />
+                </picture>
                 <span>Jompi TimHairstylist</span>
             </a>
 
@@ -61,7 +91,11 @@
     <header class="hero-section">
         <div class="container hero-row">
             <div class="hero-image">
-                <img src="{{ asset('image/image.jpg') }}" alt="Jompi TimHairstylist" />
+                <picture>
+                    <source srcset="{{ asset('image/image.avif') }}" type="image/avif">
+                    <source srcset="{{ asset('image/image.webp') }}" type="image/webp">
+                    <img src="{{ asset('image/image.jpg') }}" alt="Jompi TimHairstylist" class="img-fluid" width="679" height="1207" loading="eager" decoding="async" fetchpriority="high" />
+                </picture>
             </div>
             <div class="hero-copy text-start">
                 <h2 class=" fw-bold mb-3">💈 Jompi TimHairstylist 💈 </h2>
@@ -78,7 +112,11 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <img src="{{ asset('image/dadan.jpeg') }}" class="img-fluid rounded shadow" alt="Tentang CPP">
+                    <picture>
+                        <source srcset="{{ asset('image/dadan.avif') }}" type="image/avif">
+                        <source srcset="{{ asset('image/dadan.webp') }}" type="image/webp">
+                        <img src="{{ asset('image/dadan.jpeg') }}" class="img-fluid rounded shadow" alt="Tentang CPP" width="720" height="480" loading="lazy">
+                    </picture>
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0">
                     <h2 class="fw-bold text-uppercase mb-4 section-title">Tentang Kami</h2>
@@ -181,7 +219,7 @@
                     <div class="col-md-4 col-6">
                         <div class="gallery-item-wrapper">
 <div class="gallery-item" data-full="{{ asset('storage/' . $galeri->image_path) }}" data-title="{{ $galeri->title ?? 'Galeri' }}">
-                                <img src="{{ asset('storage/' . $galeri->image_path) }}" alt="{{ $galeri->title ?? 'Galeri' }}" />
+                                <img src="{{ asset('storage/' . $galeri->image_path) }}" alt="{{ $galeri->title ?? 'Galeri' }}" loading="lazy" width="400" height="300" />
                                 <div class="gallery-overlay text-white"><i class="fas fa-check fa-2x"></i></div>
                             </div>
                         </div>
@@ -315,7 +353,11 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-4 mb-4">
-                    <img src="{{ asset('image/logo.jpeg') }}" alt="Logo" class="footer-logo mb-3" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%;">
+                    <picture>
+                        <source srcset="{{ asset('image/logo.avif') }}" type="image/avif">
+                        <source srcset="{{ asset('image/logo.webp') }}" type="image/webp">
+                        <img src="{{ asset('image/logo.jpeg') }}" alt="Logo" class="footer-logo mb-3" width="60" height="60" loading="lazy" style="object-fit: cover; border-radius: 50%;">
+                    </picture>
                     <h5 class="fw-bold text-gold mb-3">Jompi TimHairstylist</h5>
                     <p class="small text-muted-custom">
                         Layanan hairstyling profesional khusus pria untuk acara pernikahan. Buat pengantin pria Anda tampil percaya diri dan berkelas di hari bahagia.
