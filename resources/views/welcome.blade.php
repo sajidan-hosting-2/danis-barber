@@ -9,10 +9,20 @@
         .hero-section{background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{ asset('image/image.jpg') }}') center/cover no-repeat;min-height:60vh;display:flex;align-items:center;justify-content:center;padding:40px 0}
         .navbar{background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.1)}
         .navbar-logo{width:34px;height:34px;object-fit:cover;border-radius:9999px}
+
+        /* Fix maps */
+        .map-placeholder{width:100%;min-height:320px;display:flex;align-items:center;justify-content:center;background:#f1f3f5;border-radius:8px;cursor:pointer;padding:24px;text-align:center}
+        .map-placeholder-inner{display:flex;flex-direction:column;align-items:center;gap:8px;color:#495057}
+        .map-placeholder .map-icon{font-size:32px}
+        .map-placeholder .map-text{font-weight:600}
+        .map-container{width:100%;overflow:hidden;border-radius:8px}
+        #mapFrameContainer{width:100%;min-height:320px;display:block}
+        #mapFrameContainer iframe{width:100%;min-height:320px;border:0;display:block}
     </style>
     <link rel="icon" type="image/jpeg" href="{{ asset('image/logo.jpeg') }}" />
-    <!-- Preload hero image (prefer WebP) to help LCP -->
-    <link rel="preload" href="{{ asset('image/image.webp') }}" as="image" type="image/webp">
+
+    <!-- Preload hero image aman -->
+    <link rel="preload" href="{{ asset('image/image.jpg') }}" as="image" type="image/jpeg">
 
     <!-- Load local CSS non-blocking -->
     <link rel="preload" href="{{ asset('css/welcome.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -40,49 +50,6 @@
     </noscript>
 </head>
 <body>
-
-<style>
-    .map-placeholder{width:100%;height:100%;min-height:250px;display:flex;align-items:center;justify-content:center;background:#f1f3f5;border-radius:8px;cursor:pointer}
-    .map-placeholder-inner{display:flex;flex-direction:column;align-items:center;gap:8px;color:#495057}
-    .map-placeholder .map-icon{font-size:32px}
-    .map-placeholder .map-text{font-weight:600}
-</style>
-<script>
-    (function(){
-        const placeholder = document.getElementById('mapPlaceholder');
-        const container = document.getElementById('mapFrameContainer');
-        const mapSrc = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15909.449076487999!2d108.219987!3d-7.324006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f5748d49d7613%3A0x7ee6679066d23137!2zRG9tZSBCYXJiZXIgU2hvcA==!5e0!3m2!1sid!2sid!4v1710000000000';
-
-        function loadMap(){
-            if (container.querySelector('iframe')) return;
-            const iframe = document.createElement('iframe');
-            iframe.src = mapSrc;
-            iframe.width = '100%';
-            iframe.height = '100%';
-            iframe.style.border = '0';
-            iframe.setAttribute('loading','lazy');
-            iframe.setAttribute('referrerpolicy','no-referrer-when-downgrade');
-            iframe.id = 'mapIframe';
-            container.setAttribute('aria-hidden','false');
-            container.appendChild(iframe);
-            // hide placeholder after load
-            placeholder.style.display = 'none';
-        }
-
-        placeholder.addEventListener('click', loadMap);
-        placeholder.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadMap(); } });
-
-        // Auto-load when placeholder enters viewport (but only on non-slow connections)
-        if ('IntersectionObserver' in window && navigator.connection && navigator.connection.saveData !== true) {
-            const io = new IntersectionObserver((entries)=>{
-                entries.forEach(entry=>{
-                    if (entry.isIntersecting) { loadMap(); io.disconnect(); }
-                });
-            },{rootMargin:'200px'});
-            io.observe(placeholder);
-        }
-    })();
-</script>
     <!-- Floating Sosmed Button -->
     <div class="sosmed-float">
         <a href="https://wa.me/6282126982529" target="_blank" class="wa-float" title="Chat WhatsApp">
@@ -95,14 +62,9 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.1);">
-
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/admin/login">
-                <picture>
-                    <source type="image/avif" srcset="{{ asset('image/logo-34.avif') }} 34w, {{ asset('image/logo-60.avif') }} 60w, {{ asset('image/logo-400.avif') }} 400w" sizes="34px">
-                    <source type="image/webp" srcset="{{ asset('image/logo-34.webp') }} 34w, {{ asset('image/logo-60.webp') }} 60w, {{ asset('image/logo-400.webp') }} 400w" sizes="34px">
-                    <img src="{{ asset('image/logo.jpeg') }}" alt="Logo" class="navbar-logo" width="34" height="34" loading="eager" decoding="async" fetchpriority="high" />
-                </picture>
+                <img src="{{ asset('image/logo.jpeg') }}" alt="Logo" class="navbar-logo" width="34" height="34" loading="eager" decoding="async" fetchpriority="high" />
                 <span>Jompi TimHairstylist</span>
             </a>
 
@@ -133,11 +95,7 @@
     <header class="hero-section">
         <div class="container hero-row">
             <div class="hero-image">
-                <picture>
-                    <source type="image/avif" srcset="{{ asset('image/image-400.avif') }} 400w, {{ asset('image/image-679.avif') }} 679w, {{ asset('image/image-1024.avif') }} 1024w" sizes="(max-width: 767px) 100vw, 679px">
-                    <source type="image/webp" srcset="{{ asset('image/image-400.webp') }} 400w, {{ asset('image/image-679.webp') }} 679w, {{ asset('image/image-1024.webp') }} 1024w" sizes="(max-width: 767px) 100vw, 679px">
-                    <img src="{{ asset('image/image.jpg') }}" alt="Jompi TimHairstylist" class="img-fluid" width="679" height="1207" loading="eager" decoding="async" fetchpriority="high" />
-                </picture>
+                <img src="{{ asset('image/image.jpg') }}" alt="Jompi TimHairstylist" class="img-fluid" width="679" height="1207" loading="eager" decoding="async" fetchpriority="high" />
             </div>
             <div class="hero-copy text-start">
                 <h2 class=" fw-bold mb-3 text-white">💈 Jompi TimHairstylist 💈 </h2>
@@ -154,11 +112,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <picture>
-                        <source type="image/avif" srcset="{{ asset('image/dadan-400.avif') }} 400w, {{ asset('image/dadan-679.avif') }} 679w, {{ asset('image/dadan-1024.avif') }} 1024w" sizes="(max-width: 767px) 100vw, 480px">
-                        <source type="image/webp" srcset="{{ asset('image/dadan-400.webp') }} 400w, {{ asset('image/dadan-679.webp') }} 679w, {{ asset('image/dadan-1024.webp') }} 1024w" sizes="(max-width: 767px) 100vw, 480px">
-                        <img src="{{ asset('image/dadan.jpeg') }}" class="img-fluid rounded shadow" alt="Tentang CPP" width="720" height="480" loading="lazy">
-                    </picture>
+                    <img src="{{ asset('image/dadan.jpeg') }}" class="img-fluid rounded shadow" alt="Tentang CPP" width="720" height="480" loading="lazy">
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0">
                     <h2 class="fw-bold text-uppercase mb-4 section-title">Tentang Kami</h2>
@@ -260,7 +214,7 @@
                 @forelse($galeris as $galeri)
                     <div class="col-md-4 col-6">
                         <div class="gallery-item-wrapper">
-<div class="gallery-item" data-full="{{ asset('storage/' . $galeri->image_path) }}" data-title="{{ $galeri->title ?? 'Galeri' }}">
+                            <div class="gallery-item" data-full="{{ asset('storage/' . $galeri->image_path) }}" data-title="{{ $galeri->title ?? 'Galeri' }}">
                                 <img src="{{ asset('storage/' . $galeri->image_path) }}" alt="{{ $galeri->title ?? 'Galeri' }}" loading="lazy" width="400" height="300" />
                                 <div class="gallery-overlay text-white"><i class="fas fa-check fa-2x"></i></div>
                             </div>
@@ -333,13 +287,13 @@
 
             <!-- Google Maps -->
             <div class="map-container">
-                        <div id="mapPlaceholder" class="map-placeholder" role="button" tabindex="0" aria-label="Tampilkan peta">
-                            <div class="map-placeholder-inner">
-                                <div class="map-icon">📍</div>
-                                <div class="map-text">Tampilkan Peta</div>
-                            </div>
-                        </div>
-                        <div id="mapFrameContainer" aria-hidden="true"></div>
+                <div id="mapPlaceholder" class="map-placeholder" role="button" tabindex="0" aria-label="Tampilkan peta">
+                    <div class="map-placeholder-inner">
+                        <div class="map-icon">📍</div>
+                        <div class="map-text">Tampilkan Peta</div>
+                    </div>
+                </div>
+                <div id="mapFrameContainer" aria-hidden="true"></div>
             </div>
         </div>
     </section>
@@ -396,11 +350,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-4 mb-4">
-                    <picture>
-                        <source srcset="{{ asset('image/logo.avif') }}" type="image/avif">
-                        <source srcset="{{ asset('image/logo.webp') }}" type="image/webp">
-                        <img src="{{ asset('image/logo.jpeg') }}" alt="Logo" class="footer-logo mb-3" width="60" height="60" loading="lazy" style="object-fit: cover; border-radius: 50%;">
-                    </picture>
+                    <img src="{{ asset('image/logo.jpeg') }}" alt="Logo" class="footer-logo mb-3" width="60" height="60" loading="lazy" style="object-fit: cover; border-radius: 50%;">
                     <h5 class="fw-bold text-gold mb-3">Jompi TimHairstylist</h5>
                     <p class="small text-muted-custom">
                         Layanan hairstyling profesional khusus pria untuk acara pernikahan. Buat pengantin pria Anda tampil percaya diri dan berkelas di hari bahagia.
@@ -447,86 +397,138 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-<script>
-window.addEventListener('scroll', function(){
-    const navbar = document.querySelector('.navbar');
-    if(window.scrollY > 50){
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
 
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach((entry)=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add('show-card');
+    <!-- Fix maps: script dipindah ke bawah supaya elemen sudah ada -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const placeholder = document.getElementById('mapPlaceholder');
+        const container = document.getElementById('mapFrameContainer');
+
+        if (!placeholder || !container) return;
+
+        const mapSrc = 'https://www.google.com/maps?q=-7.3240154,108.2200024&z=19&output=embed';
+
+        function loadMap() {
+            if (container.querySelector('iframe')) return;
+
+            const iframe = document.createElement('iframe');
+            iframe.src = mapSrc;
+            iframe.style.width = '100%';
+            iframe.style.minHeight = '320px';
+            iframe.style.border = '0';
+            iframe.allowFullscreen = true;
+            iframe.loading = 'lazy';
+            iframe.referrerPolicy = 'no-referrer-when-downgrade';
+            iframe.setAttribute('aria-label', 'Lokasi Dome Barber Shop');
+
+            container.innerHTML = '';
+            container.appendChild(iframe);
+            container.setAttribute('aria-hidden', 'false');
+            placeholder.style.display = 'none';
+        }
+
+        placeholder.addEventListener('click', loadMap);
+        placeholder.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                loadMap();
+            }
+        });
+
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadMap();
+                        io.disconnect();
+                    }
+                });
+            }, { rootMargin: '200px' });
+
+            io.observe(placeholder);
         }
     });
-},{ threshold:0.15 });
+    </script>
 
-document.querySelectorAll('.pricing-card, .kontak-card, .col-md-6 img').forEach((el)=>{
-    observer.observe(el);
-});
+    <script>
+    window.addEventListener('scroll', function(){
+        const navbar = document.querySelector('.navbar');
+        if(window.scrollY > 50){
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
-document.querySelectorAll('.gallery-item:not(.gallery-item-hidden)').forEach((el)=>{
-    observer.observe(el);
-});
-
-const showAllButton = document.getElementById('show-all-gallery');
-if (showAllButton) {
-    showAllButton.addEventListener('click', function() {
-document.querySelectorAll('.gallery-item-hidden').forEach((item) => {
-            item.classList.remove('gallery-item-hidden');
-            item.style.display = '';
-            // paksa tampil instan biar tidak nunggu observer/scroll
-item.classList.add('show-card');
-            item.style.display = 'block';
+    const observer = new IntersectionObserver((entries)=>{
+        entries.forEach((entry)=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add('show-card');
+            }
         });
-        showAllButton.style.display = 'none';
+    },{ threshold:0.15 });
+
+    document.querySelectorAll('.pricing-card, .kontak-card, .col-md-6 img').forEach((el)=>{
+        observer.observe(el);
     });
-}
 
-const modalOverlay = document.getElementById('galleryModal');
-const modalImg = document.getElementById('galleryModalImg');
-const modalCloseBtn = document.getElementById('galleryModalClose');
-
-function openGalleryModal(src) {
-    if (!src) return;
-    modalImg.src = src;
-    modalOverlay.classList.add('show');
-    modalOverlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeGalleryModal() {
-    modalOverlay.classList.remove('show');
-    modalOverlay.setAttribute('aria-hidden', 'true');
-    modalImg.src = '';
-    document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.gallery-item[data-full]').forEach((item) => {
-    item.addEventListener('click', () => {
-        openGalleryModal(item.getAttribute('data-full'));
+    document.querySelectorAll('.gallery-item:not(.gallery-item-hidden)').forEach((el)=>{
+        observer.observe(el);
     });
-});
 
-modalCloseBtn?.addEventListener('click', closeGalleryModal);
-
-modalOverlay?.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) closeGalleryModal();
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalOverlay.classList.contains('show')) {
-        closeGalleryModal();
+    const showAllButton = document.getElementById('show-all-gallery');
+    if (showAllButton) {
+        showAllButton.addEventListener('click', function() {
+            document.querySelectorAll('.gallery-item-hidden').forEach((item) => {
+                item.classList.remove('gallery-item-hidden');
+                item.style.display = '';
+                item.classList.add('show-card');
+                item.style.display = 'block';
+            });
+            showAllButton.style.display = 'none';
+        });
     }
-});
 
-const reveal = () => { document.body.style.opacity = '1'; };
-window.addEventListener('DOMContentLoaded', reveal);
-setTimeout(reveal, 1500);
-</script>
+    const modalOverlay = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('galleryModalImg');
+    const modalCloseBtn = document.getElementById('galleryModalClose');
+
+    function openGalleryModal(src) {
+        if (!src) return;
+        modalImg.src = src;
+        modalOverlay.classList.add('show');
+        modalOverlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeGalleryModal() {
+        modalOverlay.classList.remove('show');
+        modalOverlay.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.gallery-item[data-full]').forEach((item) => {
+        item.addEventListener('click', () => {
+            openGalleryModal(item.getAttribute('data-full'));
+        });
+    });
+
+    modalCloseBtn?.addEventListener('click', closeGalleryModal);
+
+    modalOverlay?.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) closeGalleryModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('show')) {
+            closeGalleryModal();
+        }
+    });
+
+    const reveal = () => { document.body.style.opacity = '1'; };
+    window.addEventListener('DOMContentLoaded', reveal);
+    setTimeout(reveal, 1500);
+    </script>
+</body>
 </html>
