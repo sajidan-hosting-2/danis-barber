@@ -141,10 +141,10 @@
             </div>
             <div class="hero-copy text-start">
                 <h2 class=" fw-bold mb-3 text-white">💈 Jompi TimHairstylist 💈 </h2>
-                <h2 class=" fw-bold mb-3"> Acara Makin Berkesan </h2>
-                <p class=" h2 lead mb-4">Hair Stylist with Jompi & Tim</p>
-                <p class="h4 mb-5">Paket lengkap untuk calon pengantin pria,<br> tampil percaya diri & berkelas di hari bahagia.</p>
-                <a href="#paket" class="btn btn-gold btn-lg">Lihat Paket</a>
+                <h2 class=" fw-bold mb-3 text-white"> Acara Makin Berkesan </h2>
+                <p class=" h2 lead mb-4 text-white">Hair Stylist with Jompi & Tim</p>
+                <p class="h4 mb-5 text-white">Paket lengkap untuk calon pengantin pria,<br> tampil percaya diri & berkelas di hari bahagia.</p>
+                <a href="#paket" class="btn btn-success btn-lg text-white">Lihat Paket</a>
             </div>
         </div>
     </header>
